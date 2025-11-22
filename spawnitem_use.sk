@@ -1,0 +1,47 @@
+on right click:
+    if player's tool is air:
+        send "&cTest - air" to player
+        stop
+
+    send "&cDebug 1" to player
+    
+    # Pobierz komponent custom_data z przedmiotu
+    set {_custom_data} to custom nbt of player's tool
+    
+    if {_custom_data} is not set:
+        send "&cTest - brak custom_data" to player
+        stop
+    
+    send "&cDebug 2" to player
+    send "&eDEBUG: Zawartosc custom_data: %{_custom_data}%" to player
+
+    # # Sprawdzamy czy tag MCOF_execute istnieje w custom_data
+
+    # set int tag "custom;points" of nbt of player to 55
+    # set int tag "MyBloop" of custom nbt of player's tool to 152
+    set {_cmd} to string tag "MCOF_execute" of custom nbt of player's tool
+
+    if {_cmd} is not set:
+        send "&cTest - brak MCOF_execute" to player
+        stop
+    else:
+        send "&aOk - MCOF_execute w przedmiocie" to player
+
+    cancel event
+
+    if player does not have permission "skript.jajo_spawnujace":
+        send "&cNie masz uprawnienia!" to player
+        stop
+
+    # Usuń jedną sztukę
+    remove 1 of player's tool from player
+
+    replace "_PLAYERNAME_" in {_cmd} with "%player's name%"
+
+    # Wykonaj komendę jako konsola
+    make console execute command "%{_cmd}%"
+
+    send "&aWykonano komendę!" to player
+
+
+# replace "_PLAYERNAME_" in {_cmd} with "%player's name%
