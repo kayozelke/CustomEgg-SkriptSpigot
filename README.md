@@ -6,6 +6,6 @@ Example usage scenario: Spawning a mob with specific NBT data. This custom mob e
 Requirements:
 - Skript version 2.13.1
 - SkBee version 3.13.2
-- Purpur version 1.21.10-2528-HEAD@95a466c
+- Spigot 1.21.10 (tested on Purpur version 1.21.10-2528-HEAD@95a466c)
 
 Usage and permissions - read the script files, the script language is similar to english.
