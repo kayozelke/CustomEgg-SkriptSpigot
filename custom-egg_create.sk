@@ -1,0 +1,12 @@
+command /custom-egg <text>:
+    permission: skript.custom_egg.admin
+    trigger:
+        set {_cmd} to arg-1
+        # create item var
+        set {_i} to egg named "&eSpecjalne jajo" with lore "&7Po użyciu: %{_cmd}%" with nbt from "{""minecraft:custom_data"":{MCOF_execute:""%{_cmd}%""}}"
+        
+        
+        # give item to the player
+        give player {_i}
+        send "&aDostałeś przedmiot uruchamiający komendę:"
+        send "&f%{_cmd}%"
